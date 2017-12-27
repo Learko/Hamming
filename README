@@ -1,0 +1,2 @@
+cat test/wap | ./hamming encode | ./noise | ./hamming decode > test/wap_test
+diff test/wap test/wap_test
