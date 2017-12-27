@@ -84,7 +84,7 @@ vector<uint8_t> decode(const vector<uint8_t> &bytes) {
         );
 
         if (auto error = parity_check(code_mat); error) {
-            code_mat(error.value(), 0) = !code_init[error.value()];
+            code_mat(error.value(), 0) ^= true;
         }
 
         auto prod = ublas::prod(decode_mat, code_mat);
